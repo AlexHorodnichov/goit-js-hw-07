@@ -1,13 +1,13 @@
 import { galleryItems } from "./gallery-items.js";
 
-const galleryRefs = document.querySelector(".gallery");
-galleryRefs.addEventListener("click", onShowBigImage);
+const imageGalleryRefs = document.querySelector(".gallery");
+imageGalleryRefs.addEventListener("click", onShowBigImage);
 
 (function createGalleryMarkup() {
   const elementCreateGallery = galleryItems
     .map(({ original, preview, description }) => {
       return `
-    <div class="gallery__item">
+      <div class="gallery__item">
         <a class="gallery--original" href="${original}">
             <img
                 class="gallery__image"
@@ -16,11 +16,10 @@ galleryRefs.addEventListener("click", onShowBigImage);
                 alt="${description}"
             />
         </a>
-    </div>
-    `;
+    </div>`;
     })
     .join("");
-  galleryRefs.insertAdjacentHTML("beforeend", elementCreateGallery);
+  imageGalleryRefs.insertAdjacentHTML("beforeend", elementCreateGallery);
 })();
 
 function onShowBigImage(e) {
